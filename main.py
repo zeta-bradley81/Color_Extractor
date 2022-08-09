@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, flash
 import extcolors
 import requests
+from os import environ
+
 
 app = Flask(__name__)
-app.secret_key = "asdfjkl;"
+app.secret_key = environ['CEG_SECRET_KEY_ENV']
 LIMIT = 9
 image_path = 'last_image'
 
