@@ -1,0 +1,48 @@
+
+@font-face{
+font-family: Moonlight;
+src:url("../assets/TheMoonlight.ttf");
+}
+
+body{
+background-color: #E2E0DF;
+}
+
+#cew_paragraph{
+font-style: italic;
+font-size: 14pt;
+}
+
+.cew_text{
+font-family: Oswald;
+text-align: center;
+line-height: 110%;
+}
+
+#cew_title{
+font-family: Moonlight;
+font-size: 72pt;
+text-align: center;
+color: #FF47D3
+}
+
+input[type='file'] {
+color: rgba(0, 0, 0, 0);
+}
+
+#uploader{
+margin-left: 50px;
+}
+
+.color_block{
+  height: 100px;
+  width: 100px;
+  background-color:#000
+}
+
+li{
+font-family: Oswald
+text-align:center;
+font-size: 24pt;
+background-color: red;
+}

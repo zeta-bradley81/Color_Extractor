@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Color Extraction 0.01</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="static/css/styles.css" rel="stylesheet" />
+
+
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</head>
+<body>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col">
+<!--                    <div class="color_extractor_instructions">-->
+                        <h1 id="cew_title">Palette Extractor 1.0</h1>
+                        <h3 class="cew_text">Upload an image</h3>
+                        <p class="cew_text" id="cew_paragraph">It will be analyzed for its most prominent colors.
+                            <br>
+                            Their swatches, hex values, and names will be displayed below.</p>
+<!--                    </div>-->
+                </div>
+                <div class="col-1"></div>
+            </div>
+            <div class="row">
+                                <div class="col-1"></div>
+                <div class="col">
+                    <form class='mx-auto' style="width:200px" method="post" enctype="multipart/form-data" action="/">
+                        <input type="file" id="uploader" accept="image/*" name="uploaded_image" onchange="form.submit()">
+                    </form>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
+            </section>
+
+
+  <section id="grid_test">
+      {% if colors != 0 %}
+          <div class="container">
+              {% for x in range(length) %}
+                 {% if x % 3 == 0 %}
+                      <div class="row text-center">
+                 {% endif %}
+                          <div class="col-4">
+                              <div class="row justify-content-center mt-4 mb-4">
+                                  <div class="color_block" style="background-color:{{ hex_values[x] }}">
+                                  </div>
+                                  <div class="row text-center">
+                                    <h6 class="mb-0">{{ hex_values[x] }}</h6>
+                                  </div>
+                                  <div class="row text-center">
+                                    <h5>{{ colors[x] }}</h5>
+                                  </div>
+                              </div>
+                          </div>
+                 {% if x % 3 == 2 %}
+                      </div>
+                 {% endif %}
+              {% endfor %}
+          </div>
+      {% endif %}
+  </section>
+</body>
+</html>
